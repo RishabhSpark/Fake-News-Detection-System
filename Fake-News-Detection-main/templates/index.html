@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Fake News Prediction</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <!-- icon -->
+  <link rel="icon" href="{{ url_for('static', filename = '/logo.jpg') }}" />
+  <link rel=stylesheet type=text/css href="{{ url_for('static', filename='/CSS/background.css') }}">
+
+  <style>
+    .shadow-textarea textarea.form-control::placeholder {
+      font-weight: 300;
+    }
+
+    .shadow-textarea textarea.form-control {
+      padding-left: 0.8rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class='ripple-background'>
+    <nav class="navbar bg-dark ">
+      <div class="container-fluid">
+        <a class="navbar-brand fs-3  text-light" href="/">Fake News Detection</a>
+        <form class="d-flex" role="s  earch">
+          <button class="btn btn-outline-primary text-light me-1 border-light"
+            onclick="window.open('https://github.com/Bhavik-Jikadara/Fakes-News-Detection/blob/main/README.md', '_blank')"
+            type="submit">About</button>
+          <button class="btn btn-outline-primary text-light border-light"
+            onclick="window.open('https://github.com/Bhavik-Jikadara/Fakes-News-Detection')"
+            type="submit">Source
+            Code</button>
+        </form>
+      </div>
+    </nav>
+    <br>
+    <p style=text-align:center>A fake news prediction web application using Machine Learning algorithms deployed using Flask and Heroku.</p>
+    <h5 style=text-align:center>Enter your text to try it.</5>
+      <br>
+      <br>
+      <div class='container float-right'>
+        <form action="/predict" method="POST">
+          <div class="col-three-forth text-center col-md-offset-2">
+            <div class="form-group float-right">
+              <textarea class="form-control border-1 border-dark jTextarea" id="jTextarea'" rows="5" name="text"
+                placeholder="Write your text here..." required>{{text}}</textarea>
+              <br><br>
+              <button class="btn btn-primary btn-outline btn-md" type="submit" name="predict">Predict</button>
+            </div>
+          </div>
+        </form>
+      </div>
+      <br>
+  </div>
+
+  <script>
+    function growTextarea(i, elem) {
+      var elem = $(elem);
+      var resizeTextarea = function (elem) {
+        var scrollLeft = window.pageXOffset || (document.documentElement || document.body.parentNode || document.body).scrollLeft;
+        var scrollTop = window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop;
+        elem.css('height', 'auto').css('height', elem.prop('scrollHeight'));
+        window.scrollTo(scrollLeft, scrollTop);
+      };
+      elem.on('input', function () {
+        resizeTextarea($(this));
+      });
+      resizeTextarea($(elem));
+    }
+
+    $('.jTextarea').each(growTextarea);
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Predict</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+    <link rel=stylesheet type=text/css href="{{ url_for('static', filename='/CSS/background.css') }}">
+</head>
+<body>
+  <nav class="navbar bg-dark ">
+    <div class="container-fluid">
+      <a class="navbar-brand fs-3  text-light" href="/">Fake News Detection</a>
+      <form class="d-flex" role="s  earch">
+        <button class="btn btn-outline-primary request-callback text-light me-1 border-light"
+          onclick="window.open('https://github.com/Bhavik-Jikadara/Fake-News-Detection/blob/main/README.md')"
+          type="submit">About</button>
+        <button class="btn btn-outline-primary text-light border-light"
+          onclick="window.open('https://github.com/Bhavik-Jikadara/Fake-News-Detection')" type="submit">Source
+          Code</button>
+      </form>
+    </div>
+  </nav>
+    <section>
+        <div class="m-5" >
+            <h2>Input News: </h2>
+            <p>* &nbsp;&nbsp;&nbsp;&nbsp; {{text}}</p>
+        </div>
+    </section>
+    <hr class="dropdown-divider">
+    <section>
+        <div class="m-5">
+            <h2>News is Fake or Real</h2>
+            <div class="text-center">
+                {% if result == 'FAKE' %}
+                <h3 style="color:red; text-align: center;"><strong>Looking Spam⚠️News📰</strong></h3>
+                {% elif result == 'REAL' %}
+                <h3 style="color:green; text-align: center;">
+                  <storong>Looking Real News📰</storong>
+                </h3>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
