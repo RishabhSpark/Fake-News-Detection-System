@@ -10,4 +10,4 @@ Gaussian Naive Bayes model accuracy: 88.3%
 
 Passive-Agressive Classifier: 0.808%
 
-LSTM: 0.992%
+LSTM: 99.23%
