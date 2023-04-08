@@ -8,6 +8,6 @@ Logistic Regression: 94.95%
 
 Gaussian Naive Bayes model accuracy: 88.3%
 
-Passive-Agressive Classifier: 0.808%
+Passive-Agressive Classifier: 93.4%
 
 LSTM: 99.23%
